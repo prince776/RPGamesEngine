@@ -1,0 +1,12 @@
+StaticEntity 595 413 75 65 mat 
+StaticEntity 621 104 45 55 pot 
+StaticEntity 559 105 45 55 pot 
+NPC 662 115 52 56 
+NPC 501 116 52 56 
+StaticEntity 578 100 65 75 tv 
+StaticEntity 526 241 65 55 chairRight 
+StaticEntity 636 241 65 55 chairLeft 
+StaticEntity 544 234 135 75 table 
+Door 863 105 864 465 50 20 Pallet house1 Pallet house1Floor1 Player true 
+Door 457 657 600 445 60 20 Pallet mainLand Pallet house1 Player true 
+Door 863 456 809 38 49 20 Pallet house1 Pallet basement Player true 

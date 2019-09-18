@@ -1,0 +1,25 @@
+StaticEntity 387 565 75 75 mat 
+StaticEntity 442 83 55 45 cpu 
+StaticEntity 552 58 75 75 bookShelf 
+StaticEntity 480 58 75 75 bookshelf 
+StaticEntity 188 58 65 75 cpu 
+StaticEntity 217 59 75 75 cpu 
+StaticEntity 296 59 125 75 pc 
+StaticEntity 359 59 125 75 pc 
+StaticEntity 235 61 125 75 pc 
+StaticEntity 588 87 55 65 pot 
+StaticEntity 184 87 55 65 pot 
+StaticEntity 457 176 115 65 table 
+StaticEntity 249 231 75 95 machine 
+StaticEntity 523 289 55 65 cpu 
+StaticEntity 496 289 55 65 cpu 
+StaticEntity 550 290 55 65 cpu 
+StaticEntity 578 290 55 65 cpu 
+StaticEntity 184 309 55 65 pot 
+StaticEntity 581 313 55 65 pot 
+StaticEntity 550 360 75 75 bookShelf 
+StaticEntity 478 360 75 75 bookShelf 
+StaticEntity 208 364 75 75 bookShelf 
+StaticEntity 279 364 75 75 bookShelf 
+StaticEntity 213 493 65 105 bed 
+Door 1239 1071 399 615 49 20 Pallet mainLand Pallet oakLab Player true 

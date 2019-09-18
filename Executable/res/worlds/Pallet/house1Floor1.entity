@@ -1,0 +1,10 @@
+StaticEntity 846 347 75 65 mat 
+StaticEntity 381 135 75 65 pot 
+StaticEntity 862 138 75 65 pot 
+StaticEntity 745 116 75 95 bookShelf 
+StaticEntity 810 116 75 95 bookShelf 
+StaticEntity 534 137 115 75 pc 
+StaticEntity 475 138 115 75 pc 
+StaticEntity 646 271 65 105 bed 
+StaticEntity 582 272 65 105 bed 
+Door 863 105 864 465 50 20 Pallet house1 Pallet house1Floor1 Player true 
