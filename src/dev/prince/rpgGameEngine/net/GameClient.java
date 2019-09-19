@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import dev.prince.rpgGameEngine.Handler;
-import dev.prince.rpgGameEngine.entities.Entity;
 import dev.prince.rpgGameEngine.entities.creatures.PlayerMP;
 import dev.prince.rpgGameEngine.features.Clock;
 import dev.prince.rpgGameEngine.features.Weather;
@@ -33,7 +32,7 @@ public class GameClient extends Thread{
 		this.handler=handler;
 		try {
 			this.socket = new DatagramSocket();
-			this.ipAddress = InetAddress.getByName(ipAddress);
+			GameClient.ipAddress = InetAddress.getByName(ipAddress);
 		} catch (SocketException | UnknownHostException e) {
 			e.printStackTrace();
 		}

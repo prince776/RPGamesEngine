@@ -12,7 +12,6 @@ import dev.prince.rpgGameEngine.gfx.Assets;
 import dev.prince.rpgGameEngine.gfx.Renderer;
 import dev.prince.rpgGameEngine.inputs.KeyManager;
 import dev.prince.rpgGameEngine.net.packets.Packet02Move;
-import dev.prince.rpgGameEngine.net.packets.Packet06BasicLogin;
 import dev.prince.rpgGameEngine.states.GameState;
 
 public class Player extends Creature {

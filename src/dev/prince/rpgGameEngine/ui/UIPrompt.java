@@ -6,8 +6,6 @@ import org.lwjgl.util.Rectangle;
 import org.newdawn.slick.Color;
 
 import dev.prince.rpgGameEngine.Handler;
-import dev.prince.rpgGameEngine.fonts.Fonts;
-import dev.prince.rpgGameEngine.gfx.Renderer;
 import dev.prince.rpgGameEngine.inputs.KeyManager;
 import dev.prince.rpgGameEngine.utils.Utils;
 

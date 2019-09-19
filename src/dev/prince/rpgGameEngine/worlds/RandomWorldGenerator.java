@@ -3,9 +3,6 @@ package dev.prince.rpgGameEngine.worlds;
 import java.util.Random;
 
 import dev.prince.rpgGameEngine.Handler;
-import dev.prince.rpgGameEngine.gfx.Assets;
-import dev.prince.rpgGameEngine.gfx.Renderer;
-import dev.prince.rpgGameEngine.tiles.Tile;
 
 public class RandomWorldGenerator {//////STOP MAKING DISTORTION IN TREES IF IT INTERSECTS ANOTHER TREE CROUD
 	

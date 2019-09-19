@@ -27,12 +27,7 @@ import static org.lwjgl.opengl.GL11.glViewport;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
 import org.lwjgl.opengl.GL13;
-import org.lwjgl.opengl.GL14;
-import org.lwjgl.opengl.GL15;
-import org.lwjgl.opengl.PixelFormat;
 
 public class DisplayClass {
 	public static void initGL(String title,int width,int height){

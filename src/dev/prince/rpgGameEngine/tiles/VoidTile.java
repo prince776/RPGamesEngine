@@ -1,8 +1,5 @@
 package dev.prince.rpgGameEngine.tiles;
 
-import dev.prince.rpgGameEngine.gfx.Assets;
-import dev.prince.rpgGameEngine.gfx.Renderer;
-import dev.prince.rpgGameEngine.states.GameState;
 
 public class VoidTile extends Tile{
 	

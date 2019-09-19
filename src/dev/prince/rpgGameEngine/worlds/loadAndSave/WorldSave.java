@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Formatter;
 
 import dev.prince.rpgGameEngine.Handler;
-import dev.prince.rpgGameEngine.entities.Door;
 import dev.prince.rpgGameEngine.entities.Entity;
 import dev.prince.rpgGameEngine.states.GameState;
 import dev.prince.rpgGameEngine.utils.Utils;

@@ -1,7 +1,6 @@
 package dev.prince.rpgGameEngine.entities.statics;
 
 import org.lwjgl.util.Rectangle;
-import org.newdawn.slick.opengl.Texture;
 
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.Entity;

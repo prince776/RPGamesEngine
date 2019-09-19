@@ -2,11 +2,8 @@ package dev.prince.rpgGameEngine.entities.creatures;
 
 import java.net.InetAddress;
 
-import dev.prince.rpgGameEngine.Game;
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.gfx.Assets;
-import dev.prince.rpgGameEngine.gfx.Renderer;
-import dev.prince.rpgGameEngine.net.packets.Packet02Move;
 import dev.prince.rpgGameEngine.states.GameState;
 
 public class PlayerMP extends Player{

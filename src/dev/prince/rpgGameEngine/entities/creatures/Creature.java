@@ -1,13 +1,11 @@
 package dev.prince.rpgGameEngine.entities.creatures;
 
 
-import org.newdawn.slick.openal.Audio;
 
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.Entity;
 import dev.prince.rpgGameEngine.gfx.Animation;
 import dev.prince.rpgGameEngine.gfx.Assets;
-import dev.prince.rpgGameEngine.sounds.SoundEffects;
 import dev.prince.rpgGameEngine.tiles.Tile;
 
 public abstract class Creature extends Entity {

@@ -2,7 +2,6 @@ package dev.prince.rpgGameEngine.creations;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
-import org.newdawn.slick.Color;
 
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.Door;
@@ -19,7 +18,8 @@ import dev.prince.rpgGameEngine.worlds.loadAndSave.WorldSave;
 
 public class EntityCreation extends Creation{
 	
-	private boolean makeDoor=false,makeStatic=false,makeNPC=false,place=false,hold=false;
+	private boolean makeDoor=false,makeStatic=false,place=false,hold=false,move = false;
+//	private boolean makeNPC=false;
 	private int mouseX,mouseY,sWidth=50,sHeight=50,staticEntityX,staticEntityY;
 	private int doorLength=50;
 	private Entity e=null;
@@ -37,24 +37,25 @@ public class EntityCreation extends Creation{
 		//ADD ENTITIES
 		
 				//Move Entities
-				boolean move=false;
+				 move=false;
 				if(GameState.prompt.getPromptText().toLowerCase().startsWith("move entity")){
 					move=true;
 				}
 				
 				//ADD DOOR
-				boolean makeDoor=false,makeStatic=false;
-				int length=50;
+				makeDoor=false;
+				makeStatic=false;
+				doorLength=50;
 				
 				//PRE_STAGE
 				if(GameState.prompt.getPromptText().toLowerCase().startsWith("use door")){//DOOR
 					if((GameState.prompt.getPromptText().length()>10))
-						length = Utils.parseInt(GameState.prompt.getPromptText().substring(9).split("\\s+")[0]);
+						doorLength = Utils.parseInt(GameState.prompt.getPromptText().substring(9).split("\\s+")[0]);
 					makeDoor=true;
 				}
 				if(makeDoor){//DOOR
 					Renderer.setColor(0.5f, 0.5f, 0.5f, 0.5f);
-					Renderer.renderQuad(mouseX-handler.getGameCamera().getxOffset(), mouseY-handler.getGameCamera().getyOffset(), length,20);
+					Renderer.renderQuad(mouseX-handler.getGameCamera().getxOffset(), mouseY-handler.getGameCamera().getyOffset(), doorLength,20);
 				}		
 				if(GameState.prompt.getPromptText().equalsIgnoreCase("USE NPC")){//NPC
 					Renderer.setColor(1f, 1f, 1f, 0.5f);

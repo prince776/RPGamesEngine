@@ -2,7 +2,6 @@ package dev.prince.rpgGameEngine.entities.creatures;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.util.Rectangle;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
 import dev.prince.rpgGameEngine.Handler;
@@ -11,8 +10,6 @@ import dev.prince.rpgGameEngine.gfx.Assets;
 import dev.prince.rpgGameEngine.gfx.Renderer;
 import dev.prince.rpgGameEngine.inputs.KeyManager;
 import dev.prince.rpgGameEngine.states.GameState;
-import dev.prince.rpgGameEngine.states.WorldCreationState;
-import dev.prince.rpgGameEngine.ui.TextArea;
 import dev.prince.rpgGameEngine.utils.Utils;
 
 public class NPC extends Creature {

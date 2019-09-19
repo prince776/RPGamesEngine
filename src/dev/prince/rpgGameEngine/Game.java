@@ -66,7 +66,7 @@ public class Game{
 	Assets assets;
 	//Sounds
 	private SoundEffects soundEffects;
-	private Thread t;
+//	private Thread t;
 	
 	//GAME CLIENTS AND SERVER
 	GameClient client;

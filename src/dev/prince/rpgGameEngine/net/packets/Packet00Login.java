@@ -1,8 +1,5 @@
 package dev.prince.rpgGameEngine.net.packets;
 
-import org.lwjgl.Sys;
-
-import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.net.GameClient;
 import dev.prince.rpgGameEngine.net.GameServer;
 
