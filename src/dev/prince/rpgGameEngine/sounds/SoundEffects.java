@@ -35,7 +35,7 @@ public class SoundEffects {
 		walk.add(loadAudio("WAV","res/sounds/stone1.wav"));
 		walk.add(loadAudio("WAV","res/sounds/stone1.wav"));//floor
 		walk.add(loadAudio("WAV","res/sounds/stone1.wav"));//path
-		walk.add(loadAudio("OGG","res/sounds/stairs.ogg"));
+		walk.add(loadAudio("WAV","res/sounds/stairs.wav"));//stairs
 		
 		
 		names.add("grass");
@@ -50,7 +50,7 @@ public class SoundEffects {
 		door = loadAudio("WAV","res/sounds/door.wav");
 		palletTown = loadAudio("WAV","res/sounds/PalletTown.wav");
 		thunder = loadAudio("WAV","res/sounds/thunder.wav");
-		rain = loadAudio("OGG","res/sounds/rain4.ogg");
+		rain = loadAudio("WAV","res/sounds/rain.wav");
 
 	}
 	
@@ -82,7 +82,7 @@ public class SoundEffects {
 	
 	public  Audio loadAudio(String format,String path){
         try {
-			return AudioLoader.getAudio("WAV", ResourceLoader.getResourceAsStream(path));
+			return AudioLoader.getAudio(format, ResourceLoader.getResourceAsStream(path));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

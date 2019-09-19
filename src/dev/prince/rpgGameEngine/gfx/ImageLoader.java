@@ -23,6 +23,7 @@ public class ImageLoader {
 	
 	public static Texture loadImage(String path,String format) {
 			try {
+				
 				Texture tex= TextureLoader.getTexture(format, ResourceLoader.getResourceAsStream(path));
 				glBindTexture(GL_TEXTURE_2D,tex.getTextureID());
 				glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
