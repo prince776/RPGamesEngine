@@ -12,7 +12,7 @@ public abstract class Creature extends Entity {
 	
 	public static float  DEFAULT_SPEED=1;
 	public static final int DEFAULT_HEALTH=10;
-	public static final float DEFAULT_WIDTH=52,DEFAULT_HEIGHT=56;
+	public static final float DEFAULT_WIDTH=62,DEFAULT_HEIGHT=67;
 	public static final int DEFAULT_ANIMSPEED=110;
 	
 	protected float speed,runSpeed;

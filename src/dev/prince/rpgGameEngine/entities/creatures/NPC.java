@@ -28,10 +28,10 @@ public class NPC extends Creature {
 	
 	public NPC(Handler handler, float x, float y) {
 		super(handler, x, y, DEFAULT_WIDTH,DEFAULT_HEIGHT);
-		bounds.setX(18);
-		bounds.setY(38 );
-		bounds.setWidth(17);
-		bounds.setHeight(12);
+		bounds.setX(18 +2);
+		bounds.setY(38+3 );
+		bounds.setWidth(17 + 8);
+		bounds.setHeight(12 + 5);
 		sheet = Assets.NPCsheet;
 		lastTime=System.currentTimeMillis();
 	}

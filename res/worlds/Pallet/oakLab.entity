@@ -22,4 +22,3 @@ StaticEntity 478 360 75 75 bookShelf
 StaticEntity 208 364 75 75 bookShelf 
 StaticEntity 279 364 75 75 bookShelf 
 StaticEntity 213 493 65 105 bed 
-Door 1239 1071 399 615 49 20 Pallet mainLand Pallet oakLab Player true 

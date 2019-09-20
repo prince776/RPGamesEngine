@@ -1,6 +1,6 @@
-StaticEntity 465 630 70 70 mat 
+StaticEntity 452 631 70 70 mat 
 StaticEntity 1177 652 80 80 mat 
-StaticEntity 1234 1054 70 70 mat 
+StaticEntity 1240 1057 70 70 mat 
 StaticEntity 372 -38 99 126 tree 
 StaticEntity 1400 -37 99 126 tree 
 StaticEntity 302 -35 99 126 tree 
@@ -11,30 +11,32 @@ StaticEntity 217 -30 99 126 tree
 StaticEntity 1246 -30 99 126 tree 
 StaticEntity 1322 -30 99 126 tree 
 StaticEntity 1561 -29 99 126 tree 
-StaticEntity 1082 -27 99 126 tree 
 StaticEntity 149 -25 99 126 tree 
 StaticEntity 1639 -24 99 126 tree 
 StaticEntity 88 -23 99 126 tree 
-StaticEntity 1021 -23 99 126 tree 
 StaticEntity 27 -22 99 126 tree 
-StaticEntity 947 -19 99 126 tree 
-StaticEntity 876 -18 99 126 tree 
+StaticEntity 435 1 90 130 tree 
+StaticEntity 540 4 90 130 tree 
+StaticEntity 473 5 90 130 tree 
+StaticEntity 633 7 90 130 tree 
+StaticEntity 240 31 90 130 tree 
 StaticEntity 1692 39 99 126 tree 
+StaticEntity 513 42 90 130 tree 
+StaticEntity 584 42 90 130 tree 
 StaticEntity 372 48 99 126 tree 
 StaticEntity 1202 48 99 126 tree 
+StaticEntity 439 45 90 130 tree 
+StaticEntity 685 45 90 130 tree 
 StaticEntity 209 50 99 126 tree 
 StaticEntity 301 51 99 126 tree 
 StaticEntity 254 51 99 126 tree 
 StaticEntity 156 51 99 126 tree 
-StaticEntity 1034 53 99 126 tree 
-StaticEntity 888 53 99 126 tree 
 StaticEntity 1488 54 99 126 tree 
 StaticEntity 106 55 99 126 tree 
 StaticEntity 1421 56 99 126 tree 
 StaticEntity 1358 56 99 126 tree 
 StaticEntity -32 57 99 126 tree 
 StaticEntity 1120 57 99 126 tree 
-StaticEntity 953 57 99 126 tree 
 StaticEntity 1277 58 99 126 tree 
 StaticEntity 1542 61 99 126 tree 
 StaticEntity 32 72 99 126 tree 
@@ -71,15 +73,27 @@ StaticEntity 24 498 99 126 tree
 StaticEntity 1689 503 99 126 tree 
 StaticEntity 1619 505 99 126 tree 
 StaticEntity 89 539 99 126 tree 
-StaticEntity 686 629 55 45 mailBox 
-StaticEntity 407 363 285 315 house 
-StaticEntity 1071 645 55 45 mailBox 
+StaticEntity 336 614 70 60 mailbox 
+StaticEntity 1071 616 70 60 mailbox 
+StaticEntity 392 364 285 315 house 
 StaticEntity 1124 377 285 315 house 
 StaticEntity 1620 570 99 126 tree 
 StaticEntity 1689 582 99 126 tree 
 StaticEntity 19 585 99 126 tree 
 StaticEntity 89 589 99 126 tree 
 StaticEntity -50 602 99 126 tree 
+StaticEntity 1027 660 90 90 fenceX 
+StaticEntity 1342 660 90 90 fenceX 
+StaticEntity 1389 660 90 90 fenceX 
+StaticEntity 1074 661 90 90 fenceX 
+StaticEntity 1253 661 90 90 fenceX 
+StaticEntity 1298 661 90 90 fenceX 
+StaticEntity 557 668 95 85 fenceX 
+StaticEntity 609 668 95 85 fenceX 
+StaticEntity 661 668 95 85 fenceX 
+StaticEntity 350 669 95 85 fenceX 
+StaticEntity 294 669 105 85 fenceX 
+StaticEntity 507 671 95 85 fenceX 
 StaticEntity 1626 644 99 126 tree 
 StaticEntity 86 656 99 126 tree 
 StaticEntity 1689 671 99 126 tree 
@@ -91,15 +105,6 @@ StaticEntity 1689 763 99 126 tree
 StaticEntity 22 767 99 126 tree 
 StaticEntity 1638 780 99 126 tree 
 StaticEntity 86 782 99 126 tree 
-StaticEntity 359 866 65 55 fenceX 
-StaticEntity 392 866 65 55 fenceX 
-StaticEntity 425 866 65 55 fenceX 
-StaticEntity 457 866 65 55 fenceX 
-StaticEntity 489 867 65 55 fenceX 
-StaticEntity 521 867 65 55 fenceX 
-StaticEntity 584 867 65 55 fenceX 
-StaticEntity 552 868 65 55 fenceX 
-StaticEntity 617 868 65 55 fenceX 
 StaticEntity -33 804 99 126 tree 
 StaticEntity 86 833 99 126 tree 
 StaticEntity 1643 846 99 126 tree 
@@ -109,27 +114,26 @@ StaticEntity 88 901 99 126 tree
 StaticEntity -47 904 99 126 tree 
 StaticEntity 1642 913 99 126 tree 
 StaticEntity 88 947 99 126 tree 
-NPC 730 1019 52 56 
-StaticEntity 1086 1044 55 45 mailBox 
+NPC 730 1019 62 67 
+StaticEntity 1131 858 280 230 lab 
+StaticEntity 1073 1031 70 60 mailbox 
 StaticEntity 1711 966 99 126 tree 
-StaticEntity 1126 864 280 230 lab 
 StaticEntity 14 970 99 126 tree 
 StaticEntity 1645 973 99 126 tree 
 StaticEntity 88 994 99 126 tree 
 StaticEntity -38 998 99 126 tree 
-NPC 992 1035 52 56 
-StaticEntity 1162 1088 65 55 fenceX 
-StaticEntity 1096 1088 65 55 fenceX 
-StaticEntity 1195 1089 65 55 fenceX 
-StaticEntity 1129 1089 65 55 fenceX 
-StaticEntity 1384 1090 65 55 fenceX 
-StaticEntity 1416 1090 65 55 fenceX 
-StaticEntity 1352 1091 65 55 fenceX 
-StaticEntity 1288 1092 65 55 fenceX 
+StaticEntity 1341 1076 105 85 fenceX 
+StaticEntity 1031 1077 105 85 fenceX 
+StaticEntity 1084 1077 105 85 fenceX 
+StaticEntity 1132 1077 105 85 fenceX 
+StaticEntity 1261 1077 105 85 fenceX 
+StaticEntity 1315 1077 105 85 fenceX 
+StaticEntity 1395 1077 105 85 fenceX 
 StaticEntity 88 1040 99 126 tree 
 StaticEntity 1648 1044 99 126 tree 
 StaticEntity 1708 1050 99 126 tree 
 StaticEntity 21 1065 99 126 tree 
+NPC 992 1035 62 67 
 StaticEntity -26 1091 99 126 tree 
 StaticEntity 88 1091 99 126 tree 
 StaticEntity 1647 1099 99 126 tree 
@@ -201,5 +205,5 @@ StaticEntity 535 1318 99 126 tree
 StaticEntity 593 1321 99 126 tree 
 Door 457 657 600 445 60 20 Pallet mainLand Pallet house1 Player true 
 Door 1189 658 433 585 50 20 Pallet mainLand Pallet house2 Player true 
-Door 1239 1071 399 615 49 20 Pallet mainLand Pallet oakLab Player true 
+Door 1246 1075 360 678 50 20 Pallet mainLand Pallet lab Player true 
 Door 715 1330 50 50 444 20 Pallet mainLand Sea palletSea Player true 

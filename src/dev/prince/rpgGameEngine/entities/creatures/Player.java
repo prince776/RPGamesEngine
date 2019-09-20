@@ -28,10 +28,10 @@ public class Player extends Creature {
 	
 	public Player(Handler handler, float x, float y,String username) {
 		super(handler, x, y,DEFAULT_WIDTH,DEFAULT_HEIGHT);
-		bounds.setX(18);
-		bounds.setY(38 );
-		bounds.setWidth(17);
-		bounds.setHeight(12);
+		bounds.setX(18 +2);
+		bounds.setY(38+3 );
+		bounds.setWidth(17 + 8);
+		bounds.setHeight(12 + 5);
 		
 		this.username = username;
 		sheet = Assets.playerSheet;
@@ -87,7 +87,7 @@ public class Player extends Creature {
 				else{
 					x+=xMove;
 					y+=yMove;
-					speed=(byte) (DEFAULT_SPEED*3);
+					speed=(byte) (DEFAULT_SPEED*6);
 				}		
 				
 				if(yMove>0)
@@ -148,7 +148,6 @@ public class Player extends Creature {
 	
 	@Override
 	public void render() {
-			
 		
 			Renderer.renderString(x-handler.getGameCamera().getxOffset() -Fonts.font.getWidth(username)/2+width/2, y-handler.getGameCamera().getyOffset()-20, username, Color.white, false);
 			Renderer.setColor(1, 1, 1, 1);

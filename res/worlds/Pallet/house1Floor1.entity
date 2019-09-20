@@ -1,10 +1,13 @@
-StaticEntity 846 347 75 65 mat 
-StaticEntity 381 135 75 65 pot 
-StaticEntity 862 138 75 65 pot 
-StaticEntity 745 116 75 95 bookShelf 
-StaticEntity 810 116 75 95 bookShelf 
-StaticEntity 534 137 115 75 pc 
-StaticEntity 475 138 115 75 pc 
-StaticEntity 646 271 65 105 bed 
-StaticEntity 582 272 65 105 bed 
-Door 863 105 864 465 50 20 Pallet house1 Pallet house1Floor1 Player true 
+StaticEntity 923 328 75 65 mat 
+StaticEntity 354 16 75 75 pot 
+StaticEntity 937 21 75 75 pot 
+StaticEntity 799 17 75 95 bookshelf 
+StaticEntity 730 17 75 95 bookshelf 
+StaticEntity 596 3 125 115 pc 
+NPC 796 174 62 67 
+StaticEntity 531 220 85 125 bed 
+StaticEntity 593 221 85 125 bed 
+NPC 457 405 62 67 
+StaticEntity 351 438 75 75 pot 
+StaticEntity 838 438 75 75 pot 
+Door 872 99 933 486 50 20 Pallet house1 Pallet house1Floor1 Player true 

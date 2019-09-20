@@ -12,7 +12,7 @@ public  class Tile {
 	
 	public int zIndex=0;
 	
-	public static float TILEWIDTH =16 , TILEHEIGHT = 16; 
+	public static float TILEWIDTH =32 , TILEHEIGHT = 32; 
 	
 	public boolean isActive=false;
 	
