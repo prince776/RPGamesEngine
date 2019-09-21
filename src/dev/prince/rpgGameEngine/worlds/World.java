@@ -80,16 +80,13 @@ public class World {
 			}
 		}
 		
-		
-		
 		entityManager.render();
-		
 		
 		if(GameState.createWorld){
 			for(int i=0;i<solidTiles.size();i++){
 				if(solidTiles.get(i)[0]<=xEnd && solidTiles.get(i)[0] >=xStart){
 					if(solidTiles.get(i)[1]<=yEnd && solidTiles.get(i)[1] >=yStart){
-						Renderer.setColor(1f, 0f, 0f, 0.5f);
+						Renderer.setColor(1f, 0f, 0f, 0.4f);
 						Renderer.renderQuad(solidTiles.get(i)[0]*Tile.TILEWIDTH-handler.getGameCamera().getxOffset(), solidTiles.get(i)[1]*Tile.TILEHEIGHT-handler.getGameCamera().getyOffset(), (int)Tile.TILEWIDTH, (int)Tile.TILEHEIGHT);
 						count++;
 					}

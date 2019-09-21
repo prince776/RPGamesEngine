@@ -6,6 +6,7 @@ import org.lwjgl.util.Rectangle;
 import org.newdawn.slick.Color;
 
 import dev.prince.rpgGameEngine.Handler;
+import dev.prince.rpgGameEngine.fonts.Fonts;
 import dev.prince.rpgGameEngine.inputs.KeyManager;
 import dev.prince.rpgGameEngine.utils.Utils;
 
@@ -26,11 +27,13 @@ public class UIPrompt extends UIObject{
 	public void tick() {
 		//BACKSPACE WORKING
 		
-		width = TextArea.getWidth();
-		height = TextArea.getHeight();
+		
+		
+		width = TextArea.xOffset + Fonts.font.getWidth(text) + TextArea.xOffset;
+		height = TextArea.yOffset + Fonts.font.getHeight(text) + TextArea.yOffset;
 		bounds.setWidth(width);
 		bounds.setHeight(height);
-		
+		                 
 		if(focused){
 			if(Utils.parseInt(KeyManager.getInput(false)) == Keyboard.KEY_BACK){
 				if(text.length()>1)
@@ -85,7 +88,7 @@ public class UIPrompt extends UIObject{
 	
 	public void setPromptText(String message){
 		text="";
-		text=message;
+		text=message +"_";
 	}
 	public void appendText(String message){
 		text=text.substring(0, text.length()-1);

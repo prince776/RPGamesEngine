@@ -42,7 +42,6 @@ public class WorldCreationState extends State{
 			System.out.println("EXITING WORLD CREATION STATE");
 		}
 		
-		
 		//SET CREATIONS ACCORDINGLY
 		 if(GameState.prompt.getPromptText().toLowerCase().startsWith("enter") ){
 			 for(int i=0;i<modes.length;i++){
@@ -56,20 +55,15 @@ public class WorldCreationState extends State{
 			 }
 		
 		 }
-		
-
 		if(Creation.getCreation()!=null){
 			Creation.getCreation().tick();
 		}
-		
 	}
 	
 	
 	
 	@Override
 	public void render() {
-		
-		
 		
 		 //RENDER INFO----------------------------
 		 TextArea.renderTextArea(7, 5, "DEBUG: TRUE", Color.black);

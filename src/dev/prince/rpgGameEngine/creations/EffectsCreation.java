@@ -23,8 +23,10 @@ public class EffectsCreation extends Creation{
 	
 	public void tick() {
 		
+		String command = GameState.prompt.getPromptText().toLowerCase();
+		
 		//LIGHT
-		if(GameState.prompt.getPromptText().toLowerCase().startsWith("set light")){
+		if(command.startsWith("set light")){
 			if(GameState.prompt.getPromptText().length() > 10){
 				setLight=true;
 				try{
@@ -33,12 +35,12 @@ public class EffectsCreation extends Creation{
 					light=100;
 				}
 			}
-		}else if(GameState.prompt.getPromptText().equalsIgnoreCase("reset light")){
+		}else if(command.equalsIgnoreCase("reset light")){
 			setLight =false;
 		}
 		
 		//TIME
-		if(GameState.prompt.getPromptText().toLowerCase().startsWith("set time speed")){
+		if(command.startsWith("set time speed")){
 			if(GameState.prompt.getPromptText().length() > 15){
 				try{
 					handler.getClock().interval = Float.parseFloat((GameState.prompt.getPromptText().substring(15, GameState.prompt.getPromptText().length())));
@@ -46,10 +48,12 @@ public class EffectsCreation extends Creation{
 					handler.getClock().interval = Game.UPS;	
 				}
 			}
+		}else if(command.equalsIgnoreCase("reset time speed")){
+			handler.getClock().interval = Game.UPS;
 		}
 
 		//RAIN
-		if(GameState.prompt.getPromptText().toLowerCase().startsWith("start rain")){
+		if(command.startsWith("start rain")){
 			String[] tokens = GameState.prompt.getPromptText().split("\\s+");
 			if(tokens.length == 3){
 				if(KeyManager.value==Keyboard.KEY_RETURN){
@@ -59,14 +63,14 @@ public class EffectsCreation extends Creation{
 			}
 			
 		}
-		if(GameState.prompt.getPromptText().equalsIgnoreCase("Stop Rain")){
+		if(command.equalsIgnoreCase("Stop Rain")){
 			if(KeyManager.value==Keyboard.KEY_RETURN)
 				rain=0;
 			
 		}
 		
 		//THUNDER
-		if(GameState.prompt.getPromptText().toLowerCase().startsWith("start thunder")){
+		if(command.startsWith("start thunder")){
 			String[] tokens = GameState.prompt.getPromptText().split("\\s+");
 			if(tokens.length == 3){
 				if(KeyManager.value==Keyboard.KEY_RETURN){

@@ -21,7 +21,7 @@ public class Player extends Creature {
 	private Inventory inventory;
 	private boolean useInventory=false;
 	private Packet02Move movePacket = new Packet02Move((byte)0,(byte)0);
-	private float xOld,yOld;
+//	private float xOld,yOld;
 	private String username;
 	private byte countMP=0;
 	private String[] items,quantities;

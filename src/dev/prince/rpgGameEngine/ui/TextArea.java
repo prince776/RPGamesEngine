@@ -7,7 +7,7 @@ import dev.prince.rpgGameEngine.gfx.Renderer;
 
 public class TextArea {
 	
-	private static int lineNo=1,length=0,xOffset = 10 ,yOffset = 2,lineHeight=4,fontHeight=10,totalSize=0,increaseConst=35;
+	public static int lineNo=1,length=0,xOffset = 10 ,yOffset = 2,lineHeight=4,fontHeight=10,totalSize=0,increaseConst=35;
 	private static int width=35,height=30;
 	private static boolean hovering=false;
 	
