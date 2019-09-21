@@ -8,21 +8,32 @@ import dev.prince.rpgGameEngine.fonts.Fonts;
 import dev.prince.rpgGameEngine.ui.TextArea;
 
 public class Clock {
-	public static int hrs = 0 , minutes=0,maxMinutes=60,maxHours=24,startH,startM;
-	public static float interval =Game.UPS,count=0;//Game.FPS;
+	public static int maxMinutes=60,maxHours=24;
+	
+	public float interval =Game.UPS,count=0;//Game.FPS;
+	
+	public int startH,startM;
+	public int hrs = 0,minutes = 0;
 	
 	private Handler handler;
 	private Weather weatherSystem;
-	public Clock(Handler handler){
+	
+	
+	public Clock(Handler handler,int hr,int min){
 		this.handler=handler;
-		weatherSystem = new Weather(handler);
 		
-		startH=11;
-		startM=0;
-		if(!Game.joinServer){
+		startH=hr;
+		startM=min;
+		
+		if(!Game.joinServer){//IN THIS CASE SERVER WILL PROVIDE TIME
 			hrs=startH;
 			minutes=startM;
 		}
+	}
+	
+	public void init(){
+		
+		weatherSystem = new Weather(handler,this);
 	}
 	
 	public void tick(){

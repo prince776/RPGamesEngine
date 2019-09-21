@@ -8,7 +8,6 @@ import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.Entity;
 import dev.prince.rpgGameEngine.gfx.Assets;
 import dev.prince.rpgGameEngine.gfx.Renderer;
-import dev.prince.rpgGameEngine.inputs.KeyManager;
 import dev.prince.rpgGameEngine.states.GameState;
 import dev.prince.rpgGameEngine.utils.Utils;
 
@@ -47,7 +46,7 @@ public class NPC extends Creature {
 	@Override
 	public void tick() {
 		
-		interact();
+	//	interact();
 		if(!interact){
 			checkInput();
 	
@@ -216,7 +215,7 @@ public class NPC extends Creature {
 			right=false;			
 	}
 
-	public void interact(){
+	/*public void interact(){
 		if(checkIntersect()){
 			if(KeyManager.value==Keyboard.KEY_RETURN){
 				interact=true;
@@ -237,7 +236,7 @@ public class NPC extends Creature {
 			interact=false;
 		}
 	}
-	
+	*/
 	boolean checkIntersect(){
 		Rectangle rect1 = new Rectangle((int)x+bounds.getX()-3,(int)y+bounds.getY()-3,(int)bounds.getWidth()+6,(int)bounds.getHeight()+6);
 		Rectangle rect2 = new Rectangle((int)handler.getPlayerX()+handler.getPlayer().getBounds().getX()-3,(int)handler.getPlayerY()+handler.getPlayer().getBounds().getY()-3,(int)handler.getPlayer().getWidth()+handler.getPlayer().getBounds().getWidth()+6,(int)handler.getPlayer().getHeight()+handler.getPlayer().getBounds().getHeight()+6);

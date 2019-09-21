@@ -1,13 +1,10 @@
 package dev.prince.rpgGameEngine.states;
 
-
-
 import org.lwjgl.input.Keyboard;
 import org.newdawn.slick.Color;
 
 import dev.prince.rpgGameEngine.Game;
 import dev.prince.rpgGameEngine.Handler;
-import dev.prince.rpgGameEngine.entities.Item;
 import dev.prince.rpgGameEngine.features.Clock;
 import dev.prince.rpgGameEngine.fonts.Fonts;
 import dev.prince.rpgGameEngine.gfx.Renderer;
@@ -20,38 +17,39 @@ public class GameState extends State{
 	
 	private World world;
 	private WorldCreationState gameCreationState;
-	private Color c=Color.darkGray.darker();
-	public static boolean createWorld=false,toMenu=false,save =false,shouldDialogue;
+	public static boolean createWorld=false,toMenu=false,save =false;
 	public static UIPrompt prompt;
 	
-	private float fadeValue=1.0f,fadeMagnitude=0f;
+	public static String[] mainSaveFile;
+	public static String currentLocation , currentLevel,path,root;
 	
-	
-	public static String[] locations;
-	
-	public static String currentLocation , currentLevel,path,root,dialogue="..";
 	private Clock clock; 
 
-	public Item flint;
-	
+	//need to remove these variables and take them to more appropriate place
+	private Color c=Color.darkGray.darker();
+	private float fadeValue=1.0f,fadeMagnitude=0f;
+
 	public GameState(Handler handler){
 		super(handler);
 		
-		locations = Utils.loadFileAsString("res/worlds/saveFile.sav").split("\\s+");
+		//LOADING MAIN SAVE FILE
+		mainSaveFile = Utils.loadFileAsString("res/worlds/saveFile.sav").split("\\s+");
 		
-		currentLocation = locations[0];
-		currentLevel = locations[1];
+		currentLocation = mainSaveFile[0];
+		currentLevel = mainSaveFile[1];
 		
 		root="res/worlds/";
 		path = root+currentLocation+"/";
 	
+		
+		
 		world=new World(handler,path+currentLevel);
 		handler.setWorld(world);
-		gameCreationState = new WorldCreationState(handler);
-		prompt = new UIPrompt(handler,20,handler.getHeight()-40);
 		
-		flint = new Item(handler,100,100,16,16,"flint");
-		clock= new Clock(handler);
+		prompt = new UIPrompt(handler,20,handler.getHeight()-40);		
+		clock= new Clock(handler,Utils.parseInt(mainSaveFile[2]), Utils.parseInt(mainSaveFile[3]));
+		clock.init();
+		gameCreationState = new WorldCreationState(handler);
 		
 	}
 	
@@ -71,7 +69,6 @@ public class GameState extends State{
 			}	
 
 		prompt.tick();
-		flint.tick();
 	}
 
 	@Override
@@ -97,15 +94,10 @@ public class GameState extends State{
 			fadeMagnitude=0f;
 		}
 		
-		flint.render();
 		
 		if(handler.getWorld().getEntityManager().getPlayer().isUseInventory()){
 			handler.getWorld().getEntityManager().getPlayer().getInventory().render();
-		}
-		if(shouldDialogue){
-			renderDialogue(dialogue);
-		}
-		
+		}		
 	}
 	public void renderDialogue(String message){
 		System.out.println("RENDERING DIALOGUE");

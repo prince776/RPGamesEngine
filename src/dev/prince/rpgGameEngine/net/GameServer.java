@@ -133,7 +133,7 @@ public class GameServer extends Thread{
 				local=null;
 				
 				//SEND DATA ABOUT WEATHER
-				Packet03Weather packetW =new Packet03Weather(Clock.hrs,Clock.minutes,handler.getClock().getWeatherSystem().rainVars[0],handler.getClock().getWeatherSystem().rainVars[1]);
+				Packet03Weather packetW =new Packet03Weather(handler.getClock().hrs,handler.getClock().minutes,handler.getClock().getWeatherSystem().rainVars[0],handler.getClock().getWeatherSystem().rainVars[1]);
 				packetW.sendToAllClients(this);
 				packetW=null;
 				break;

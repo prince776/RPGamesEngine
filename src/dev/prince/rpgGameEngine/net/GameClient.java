@@ -154,8 +154,8 @@ public class GameClient extends Thread{
 				String[] packetdata = message.split("\\s+");
 				Weather.packet.setRainStart(Utils.parseInt(packetdata[3]));
 				Weather.packet.setRainDuration(Utils.parseInt(packetdata[4]));
-				Clock.hrs=Utils.parseInt(packetdata[1]);
-				Clock.minutes=Utils.parseInt(packetdata[2]);
+				handler.getClock().hrs=Utils.parseInt(packetdata[1]);
+				handler.getClock().minutes=Utils.parseInt(packetdata[2]);
 				break;
 			case THUNDER:
 				String[] thunderData = message.split("\\s+");

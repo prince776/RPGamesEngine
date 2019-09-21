@@ -17,13 +17,13 @@ public class Weather {
 	public static Packet03Weather packet = null ;
 	//public
 	
-	public Weather(Handler handler){
+	public Weather(Handler handler,Clock clock){
 		this.handler=handler;
 		rand = new Random();
 		rainVars=new int[2];
 		old = new int[2];
 		//rain();
-		packet = new Packet03Weather((int)Clock.hrs,(int)Clock.minutes,rainVars[0],rainVars[1]);
+		packet = new Packet03Weather((int)clock.hrs,(int)clock.minutes,rainVars[0],rainVars[1]);
 		
 	}
 	
@@ -64,10 +64,10 @@ public class Weather {
 	 */
 	public void dayNight(){
 		if(!handler.getGameState().getGameCreationSate().getEffects().isSetLight()){
-			float minElapsed =(Clock.hrs*Clock.maxMinutes)+Clock.minutes;
-			if(Clock.hrs<=Clock.maxHours/2   )
+			float minElapsed =(handler.getClock().hrs*Clock.maxMinutes)+handler.getClock().minutes;
+			if(handler.getClock().hrs<=Clock.maxHours/2   )
 				Renderer.setColor(0f, 0f, 0f,1f- (minElapsed)/780f -0.1f);
-			else if(Clock.hrs>Clock.maxHours/2)
+			else if(handler.getClock().hrs>Clock.maxHours/2)
 				Renderer.setColor(0f, 0f, 0f,1f - (1440 - minElapsed)/780f - 0.1f);
 			Renderer.renderQuad(0, 0, handler.getWidth(), handler.getHeight());	
 		}
@@ -88,8 +88,8 @@ public class Weather {
 		
 		packet.setRainStart(rainVars[0]);
 		packet.setRainDuration(rainVars[1]);
-		packet.setStartHour(Clock.hrs);
-		packet.setStartMinute(Clock.minutes);
+		packet.setStartHour(handler.getClock().hrs);
+		packet.setStartMinute(handler.getClock().minutes);
 		if(Game.isServer)
 			packet.sendToAllClients(handler.getServer());
 	}

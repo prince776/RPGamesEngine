@@ -174,8 +174,10 @@ public class World {
 			solidTiles.clear();
 			
 			String[] tokens = Utils.loadFileAsString(this.worldPath.substring(0, this.worldPath.length()-5)+"solids").split("\\s+");
-			if(tokens[0]==" " )
+			if(tokens[0]==" " ){
+				solidTiles.add(new Integer[]{1,1}); //Precaution if no solid tiles
 				return;
+			}
 			for(int i=0;i<tokens.length;i+=2){
 				try{
 					solidTiles.add(new Integer[]{Utils.parseInt(tokens[i]),Utils.parseInt(tokens[i+1])});

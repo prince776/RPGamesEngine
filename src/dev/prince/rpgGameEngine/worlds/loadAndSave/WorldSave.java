@@ -67,6 +67,8 @@ public class WorldSave {
 			
 			f.format(GameState.currentLocation+"\n");
 			f.format(GameState.currentLevel+"\n");
+			f.format(handler.getClock().hrs + " " + handler.getClock().minutes +"\n");
+			
 			f.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

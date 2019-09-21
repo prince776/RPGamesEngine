@@ -61,9 +61,9 @@ public class EffectsCreation extends Creation{
 		if(GameState.prompt.getPromptText().toLowerCase().startsWith("set time speed")){
 			if(GameState.prompt.getPromptText().length() > 15){
 				try{
-				Clock.interval = Float.parseFloat((GameState.prompt.getPromptText().substring(15, GameState.prompt.getPromptText().length())));
+					handler.getClock().interval = Float.parseFloat((GameState.prompt.getPromptText().substring(15, GameState.prompt.getPromptText().length())));
 				}catch(NumberFormatException e){
-					Clock.interval = Game.UPS;	
+					handler.getClock().interval = Game.UPS;	
 				}
 			}
 		}
