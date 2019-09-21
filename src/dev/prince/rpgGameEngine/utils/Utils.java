@@ -44,7 +44,7 @@ public class Utils {
 	}
 	
 	public static int getRandomInt(int initialNum , int finalNum){
-		return random.nextInt(finalNum+1)+initialNum;
+		return random.nextInt(finalNum-initialNum +1)+initialNum;
 	}
 	
 }

@@ -1,25 +1,21 @@
 package dev.prince.rpgGameEngine.features;
 
-import java.util.Random;
-
 import dev.prince.rpgGameEngine.Game;
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.gfx.Renderer;
 import dev.prince.rpgGameEngine.net.packets.Packet03Weather;
+import dev.prince.rpgGameEngine.utils.Utils;
 
 public class Weather {
 	
 	private Handler handler;
-	private Random rand;
 	private boolean rain=false,runRainFunc=true;
 	public int[] rainVars,old;
 	
 	public static Packet03Weather packet = null ;
-	//public
 	
 	public Weather(Handler handler,Clock clock){
 		this.handler=handler;
-		rand = new Random();
 		rainVars=new int[2];
 		old = new int[2];
 		//rain();
@@ -32,11 +28,15 @@ public class Weather {
 	}
 	
 	public void render(){
-		dayNight();
 		
-		//RAIN
+		decideRain();
+		dayNight();
+
+	}
+	
+	public void decideRain(){
 		if(!Game.joinServer){
-			if(runRainFunc ){
+			if(runRainFunc){
 				rain();
 			}
 			checkRain(rainVars[0],rainVars[1]);
@@ -52,9 +52,7 @@ public class Weather {
 			if(handler.getTime() >= packet.rainStart && handler.getTime() <= packet.rainStart+packet.rainDuration){
 				handler.getGameState().getGameCreationSate().getEffects().rain();
 			}
-
 		}
-
 	}
 	
 	//WEATHERS
@@ -63,7 +61,7 @@ public class Weather {
 	 * Manipulates Light w.r.t time;
 	 */
 	public void dayNight(){
-		if(!handler.getGameState().getGameCreationSate().getEffects().isSetLight()){
+		if(!handler.getGameState().getGameCreationSate().getEffects().isSetLight()){//IF manual light is not being set
 			float minElapsed =(handler.getClock().hrs*Clock.maxMinutes)+handler.getClock().minutes;
 			if(handler.getClock().hrs<=Clock.maxHours/2   )
 				Renderer.setColor(0f, 0f, 0f,1f- (minElapsed)/780f -0.1f);
@@ -77,8 +75,9 @@ public class Weather {
 	 * Manipulates and decides the timing and duration of rain
 	 */
 	public void rain(){
-		int startTime = rand.nextInt((int) ((Clock.maxHours*Clock.maxMinutes)));
-		int duration = (int) (rand.nextInt(360))+90;
+		int startTime = Utils.getRandomInt(0, (int) ((Clock.maxHours*Clock.maxMinutes)));
+
+		int duration = Utils.getRandomInt(60, 180);
 		System.out.println("Duration:" +duration+ " StartTime: "+startTime);
 		
 		runRainFunc = !runRainFunc;
@@ -110,7 +109,4 @@ public class Weather {
 		return packet;
 	}
 
-	
-	
-	
 }
