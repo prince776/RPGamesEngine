@@ -2,6 +2,7 @@ package dev.prince.rpgGameEngine;
 
 import dev.prince.rpgGameEngine.entities.creatures.Player;
 import dev.prince.rpgGameEngine.features.Clock;
+import dev.prince.rpgGameEngine.features.weathers.Weather;
 import dev.prince.rpgGameEngine.gfx.GameCamera;
 import dev.prince.rpgGameEngine.inputs.KeyManager;
 import dev.prince.rpgGameEngine.inputs.MouseManager;
@@ -98,6 +99,10 @@ public class Handler {
 	public Clock getClock(){
 		return game.getGameState().getClock();
 	}
-		 
+		
+	public Weather getWeather(){
+		return game.getGameState().getClock().getWeatherSystem();
+	}
+	
 }
 	

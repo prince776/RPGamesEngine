@@ -14,7 +14,6 @@ import java.util.List;
 
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.creatures.PlayerMP;
-import dev.prince.rpgGameEngine.features.Clock;
 import dev.prince.rpgGameEngine.net.packets.Packet;
 import dev.prince.rpgGameEngine.net.packets.Packet.PacketTypes;
 import dev.prince.rpgGameEngine.net.packets.Packet00Login;
@@ -133,7 +132,7 @@ public class GameServer extends Thread{
 				local=null;
 				
 				//SEND DATA ABOUT WEATHER
-				Packet03Weather packetW =new Packet03Weather(handler.getClock().hrs,handler.getClock().minutes,handler.getClock().getWeatherSystem().rainVars[0],handler.getClock().getWeatherSystem().rainVars[1]);
+				Packet03Weather packetW =new Packet03Weather(handler.getClock().hrs,handler.getClock().minutes,handler.getClock().getWeatherSystem().getRain().rainVars[0],handler.getClock().getWeatherSystem().getRain().rainVars[1]);
 				packetW.sendToAllClients(this);
 				packetW=null;
 				break;

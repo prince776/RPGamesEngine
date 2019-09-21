@@ -55,15 +55,17 @@ public class SoundEffects {
 	}
 	
 	public  void playSoundEffect( final Audio a, final float x, final float y, final float z){
-		Thread t = new Thread(){
-			public void run(){
-				a.playAsSoundEffect(pitch, gain, false,x,y,z);
+		if(!a.isPlaying()){
+			Thread t = new Thread(){
+				public void run(){
+					a.playAsSoundEffect(pitch, gain, false,x,y,z);
+				}
+			};
+			t.start();try {
+				t.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-		};
-		t.start();try {
-			t.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 	}
 	

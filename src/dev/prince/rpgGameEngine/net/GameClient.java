@@ -11,8 +11,6 @@ import java.util.Iterator;
 
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.creatures.PlayerMP;
-import dev.prince.rpgGameEngine.features.Clock;
-import dev.prince.rpgGameEngine.features.Weather;
 import dev.prince.rpgGameEngine.net.packets.Packet;
 import dev.prince.rpgGameEngine.net.packets.Packet.PacketTypes;
 import dev.prince.rpgGameEngine.net.packets.Packet00Login;
@@ -150,17 +148,18 @@ public class GameClient extends Thread{
 				}
 				break;
 				
-			case WEATHER:
-				String[] packetdata = message.split("\\s+");
-				Weather.packet.setRainStart(Utils.parseInt(packetdata[3]));
-				Weather.packet.setRainDuration(Utils.parseInt(packetdata[4]));
-				handler.getClock().hrs=Utils.parseInt(packetdata[1]);
-				handler.getClock().minutes=Utils.parseInt(packetdata[2]);
-				break;
-			case THUNDER:
-				String[] thunderData = message.split("\\s+");
-				handler.getGameState().getGameCreationSate().getEffects().setClientThunder(((thunderData[1].equalsIgnoreCase("true"))?true:false));
-				break;
+				//*******************REMOVED WEATHER DATA INTERCHANGE****************
+//			case WEATHER:
+//				String[] packetdata = message.split("\\s+");
+//				Rain.packet.setRainStart(Utils.parseInt(packetdata[3]));
+//				Rain.packet.setRainDuration(Utils.parseInt(packetdata[4]));
+//				handler.getClock().hrs=Utils.parseInt(packetdata[1]);
+//				handler.getClock().minutes=Utils.parseInt(packetdata[2]);
+//				break;
+//			case THUNDER:
+//				String[] thunderData = message.split("\\s+");
+//				handler.getGameState().getGameCreationSate().getEffects().setClientThunder(((thunderData[1].equalsIgnoreCase("true"))?true:false));
+//				break;
 			case DISCONNECT:
 				break;
 		}

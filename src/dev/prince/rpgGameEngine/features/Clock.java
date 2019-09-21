@@ -4,6 +4,7 @@ import org.newdawn.slick.Color;
 
 import dev.prince.rpgGameEngine.Game;
 import dev.prince.rpgGameEngine.Handler;
+import dev.prince.rpgGameEngine.features.weathers.Weather;
 import dev.prince.rpgGameEngine.fonts.Fonts;
 import dev.prince.rpgGameEngine.ui.TextArea;
 
