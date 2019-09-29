@@ -1,4 +1,4 @@
-StaticEntity 387 565 75 75 mat 
+StaticEntity 389 578 75 75 mat 
 StaticEntity 442 83 55 45 cpu 
 StaticEntity 552 58 75 75 bookShelf 
 StaticEntity 480 58 75 75 bookshelf 
@@ -22,3 +22,4 @@ StaticEntity 478 360 75 75 bookShelf
 StaticEntity 208 364 75 75 bookShelf 
 StaticEntity 279 364 75 75 bookShelf 
 StaticEntity 213 493 65 105 bed 
+Door 1246 1075 401 617 50 20 Pallet mainLand Pallet oakLab Player true 

@@ -21,8 +21,8 @@ public class WorldSave {
 	}
 	
 	public static void Save(final Handler handler1,final int x,final int y,final int width,final int height,int[][]tiles){
-		Thread t=new Thread(){
-			public void run(){
+//		Thread t=new Thread(){
+//			public void run(){
 				handler = handler1;
 				try {
 					formatter = new Formatter(new File(handler.getWorld().getWorldPath()));
@@ -33,10 +33,6 @@ public class WorldSave {
 				//ADD WIDTH AND HEIGHT
 				formatter.format(width+" ");
 				formatter.format(height+" \n");
-				
-				//ADD spawnX AND spawnY
-//				formatter.format(x+" ");
-//				formatter.format(y+" \n");
 				
 				//ADD TILES ARRAY TO THE FILE
 				
@@ -51,14 +47,14 @@ public class WorldSave {
 				formatter.close();
 				solidTileSave();
 				entitySave();
-			}
-		};
-		t.start();
-		try {
-			t.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//			}
+//		};
+//		t.start();
+//		try {
+//			t.join();
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	public static void mainSave(){

@@ -56,5 +56,8 @@ public class MapCreation extends Creation{
 			 //TODO:when chat box is added push this on that
 			 GameState.prompt.setPromptText(s[s.length-1]+" LEVEL CREATED ");
 		 }
+		 else if(command.equalsIgnoreCase("reload map") && Keyboard.isKeyDown(Keyboard.KEY_RETURN)){
+			 handler.getWorld().loadWorld(handler.getWorld().getWorldPath());
+		 }
 	}
 }

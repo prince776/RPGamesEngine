@@ -205,5 +205,5 @@ StaticEntity 535 1318 99 126 tree
 StaticEntity 593 1321 99 126 tree 
 Door 457 657 600 445 60 20 Pallet mainLand Pallet house1 Player true 
 Door 1189 658 433 585 50 20 Pallet mainLand Pallet house2 Player true 
-Door 1246 1075 360 678 50 20 Pallet mainLand Pallet lab Player true 
+Door 1246 1075 401 617 50 20 Pallet mainLand Pallet oakLab Player true 
 Door 725 1349 50 50 444 20 Pallet mainLand Sea palletSea Player true 
