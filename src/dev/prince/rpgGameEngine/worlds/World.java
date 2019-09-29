@@ -29,7 +29,6 @@ public class World {
 	private Player player;
 	float x=200 ,y=200;
 	int count=0;
-	private float spawnX,spawnY;
 	private int width=0,height=0;//IN TERMS OF TILE NUMBER
 	
 	int[][] tiles;
@@ -138,22 +137,19 @@ public class World {
 			String[] tokens = file.split("\\s+");
 			width = Utils.parseInt(tokens[0]);
 			height = Utils.parseInt(tokens[1]);
-			spawnX = Utils.parseInt(tokens[2]);
-			spawnY = Utils.parseInt(tokens[3]);
+			entityManager.getPlayer().setX(Utils.parseInt(GameState.mainSaveFile[4]));
+			entityManager.getPlayer().setY(Utils.parseInt(GameState.mainSaveFile[5]));
+			
 			tiles = new int[height][width];
 			
 			//FILL TILE ARRAY
 			for(int y=0;y<height;y++){
 				for(int x=0;x<width;x++){
-					tiles[y][x]  = Integer.parseInt(tokens[(x+y*width)+4]);
+					tiles[y][x]  = Integer.parseInt(tokens[(x+y*width)+2]);
 				}
 			}
-			if(!Game.joinServer){
-				entityManager.getPlayer().setX(spawnX);
-				entityManager.getPlayer().setY(spawnY);
-			}
 			GameState.currentLocation = new File(path).getParentFile().getName();
-			GameState.currentLevel = tokens[width*height+4];
+			GameState.currentLevel = tokens[width*height+2];
 			
 			loadSolidTileData();
 			

@@ -35,8 +35,8 @@ public class WorldSave {
 				formatter.format(height+" \n");
 				
 				//ADD spawnX AND spawnY
-				formatter.format(x+" ");
-				formatter.format(y+" \n");
+//				formatter.format(x+" ");
+//				formatter.format(y+" \n");
 				
 				//ADD TILES ARRAY TO THE FILE
 				
@@ -68,7 +68,7 @@ public class WorldSave {
 			f.format(GameState.currentLocation+"\n");
 			f.format(GameState.currentLevel+"\n");
 			f.format(handler.getClock().hrs + " " + handler.getClock().minutes +"\n");
-			
+			f.format((int)handler.getPlayer().getX()+" " + (int)handler.getPlayer().getY());
 			f.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

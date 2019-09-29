@@ -1,0 +1,4 @@
+Location
+Level
+hours minutes
+playerX playerY
