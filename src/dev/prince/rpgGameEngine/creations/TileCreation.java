@@ -34,7 +34,7 @@ public class TileCreation extends Creation{
 		 MX =(int) ((Mouse.getX() + handler.getGameCamera().getxOffset())/Tile.TILEWIDTH);
 		 MY =(int) (((handler.getHeight()-Mouse.getY()) + handler.getGameCamera().getyOffset())/Tile.TILEHEIGHT);
 		 
-		 if(tile!=null){
+		if(tile!=null){
 				Renderer.renderSubImage(Assets.tileSet, MX*Tile.TILEWIDTH - handler.getGameCamera().getxOffset(), MY*Tile.TILEHEIGHT -  handler.getGameCamera().getyOffset(), Tile.TILEWIDTH, Tile.TILEHEIGHT, tile.getTextureData(), 0.7f);
 		}
 		if(setSolid){
