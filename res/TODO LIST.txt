@@ -1,19 +1,10 @@
-NOW:-
-1)Inventory				-> Done
-2)LIGHT					-> Done	
-3)DAY NIGHT				-> Done
-4)TIME SPEED CONTROL	-> Done
-5)Lightning Effect		-> Done
-6)Object Lighting		-> Not Done
-7)Rain System			-> Done
-8)Effects per Location	-> 
-9)Weather System		-> Done
-TODO after a while..
+TODO: 
+World + Map Building elements:
+1)Weather + light + effect per location
+2)Object Lighting
+3)SandStorm
+4)Earthquake
+5)Atmosphere effects: bright,dull,smoky etc.
 
-1)Fragment the world creation state 							-> Done
-2)give more characteristics to npcs and static entities			-> Partially Done
-3)Add interaction
-4)Add effects													-> Done																	
-5)Add resolution change feature
-6)Add item drop and collect
-7)Add inventory													-> Done
+Might wanna separate thunder into a class for making it separate weather. Then during rain while non-Indoor will
+have rain+thunder , Indoor will only have thunder

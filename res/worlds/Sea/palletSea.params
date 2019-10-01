@@ -1,0 +1,5 @@
+PermanentWeather: rain
+Rain: 10
+PermanentLight: 20
+Indoor: false
+ExcludedWeathers: rain

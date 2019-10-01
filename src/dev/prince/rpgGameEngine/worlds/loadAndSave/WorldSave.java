@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Formatter;
+import java.util.HashMap;
+import java.util.Set;
 
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.Entity;
@@ -19,8 +21,14 @@ public class WorldSave {
 	public static void init(Handler handler1){
 		handler = handler1;
 	}
-	
-	public static void Save(final Handler handler1,final int x,final int y,final int width,final int height,int[][]tiles){
+	/**
+	 * saves all type of data of map. nothing related to player save
+	 * @param handler1
+	 * @param width
+	 * @param height
+	 * @param tiles
+	 */
+	public static void Save(final Handler handler1,final int width,final int height,int[][]tiles){
 		Thread t=new Thread(){
 			public void run(){
 				handler = handler1;
@@ -47,6 +55,7 @@ public class WorldSave {
 				formatter.close();
 				solidTileSave();
 				entitySave();
+				saveWorldParams();
 			}
 		};
 		t.start();
@@ -82,6 +91,25 @@ public class WorldSave {
 				f.format(handler.getWorld().getSolidTiles().get(i)[0]+ " "+handler.getWorld().getSolidTiles().get(i)[1]+"\n");
 			}
 		f.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void saveWorldParams(){
+		if(!new File(handler.getWorld().getWorldPath().substring(0, handler.getWorld().getWorldPath().length()-5)+"params").exists()){
+			new File(handler.getWorld().getWorldPath().substring(0, handler.getWorld().getWorldPath().length()-5)+"params");
+		}
+		try {
+			Formatter f = new Formatter(handler.getWorld().getWorldPath().substring(0, handler.getWorld().getWorldPath().length()-5)+"params");
+		    HashMap<String,String> worldParams = handler.getWorld().getWorldParams();
+		    Set<String> keys = handler.getWorld().getWorldParams().keySet();
+		    
+			for(String key:keys){
+				f.format(key + ": " + worldParams.get(key)+"\n");
+			}
+		    
+			f.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -171,7 +199,20 @@ public class WorldSave {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-	
-}
+		
+		try{
+			new File(path.substring(0,path.length()-5) + "params").createNewFile();
+			Formatter f2 = new Formatter(path.substring(0,path.length()-5)+"params");
+			f2.format("Indoor: False\n");
+			f2.format("PermanentLight: -1\n");
+			f2.format("PermanentWeather: None\n");
+			f2.format("ExcludedWeathers: none,none\n");
+			f2.format("Rain: 2\n");
+			f2.close();
+			//TODO:ATMOSPHERE dull/bright/smoky etc. and effects like earthquakes
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		
+	}
 }

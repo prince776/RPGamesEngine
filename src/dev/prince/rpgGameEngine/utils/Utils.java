@@ -1,6 +1,7 @@
 package dev.prince.rpgGameEngine.utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
@@ -14,6 +15,13 @@ public class Utils {
 	}
 	
 	public static String loadFileAsString(String path){
+		
+		if(!new File(path).exists())
+			try {
+				new File(path).createNewFile();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+		}
 		
 		StringBuilder stringBuilder = new StringBuilder();
 		

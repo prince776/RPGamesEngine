@@ -99,7 +99,7 @@ public class EffectsCreation extends Creation{
 	//EFFECT FUNCTIONS
 	
 	public void setLight(float value){
-		Renderer.setColor(0, 0, 0, 1-light/100);
+		Renderer.setColor(0, 0, 0, 1-value/100);
 		Renderer.renderQuad(0, 0, handler.getWidth(),handler.getHeight());
 	}
 	

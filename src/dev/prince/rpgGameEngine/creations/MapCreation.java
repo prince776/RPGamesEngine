@@ -28,13 +28,13 @@ public class MapCreation extends Creation{
 		//INCREASE WORLD SIZE--------------------------------------
 		 if(command.startsWith("set world width")&& Keyboard.isKeyDown(Keyboard.KEY_RETURN)){
 			 int Width = Utils.parseInt(GameState.prompt.getPromptText().substring(16,GameState.prompt.getPromptText().length()));
-			 WorldSave.Save(handler,(int)handler.getWorld().getEntityManager().getPlayer().getX(),(int) handler.getWorld().getEntityManager().getPlayer().getY(), Width, handler.getWorld().getHeight(), handler.getWorld().getTiles());
+			 WorldSave.Save(handler, Width, handler.getWorld().getHeight(), handler.getWorld().getTiles());
 			 handler.getWorld().loadWorld(handler.getWorld().getWorldPath());
 		 }
 		 
 		 else if(command.startsWith("set world height")&& Keyboard.isKeyDown(Keyboard.KEY_RETURN) ){
 			 int Height = Utils.parseInt(GameState.prompt.getPromptText().substring(17,GameState.prompt.getPromptText().length()));
-				WorldSave.Save(handler,(int)handler.getWorld().getEntityManager().getPlayer().getX(),(int) handler.getWorld().getEntityManager().getPlayer().getY(), handler.getWorld().getWidth(), Height, handler.getWorld().getTiles());
+				WorldSave.Save(handler, handler.getWorld().getWidth(), Height, handler.getWorld().getTiles());
 			 handler.getWorld().loadWorld(handler.getWorld().getWorldPath());
 		 }
 		 

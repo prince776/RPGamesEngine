@@ -17,7 +17,7 @@ public class GameState extends State{
 	
 	private World world;
 	private WorldCreationState gameCreationState;
-	public static boolean createWorld=false,toMenu=false,save =false;
+	public static boolean createWorld=false,toMenu=false,save =false,autoSave=true;
 	public static UIPrompt prompt;
 	
 	public static String[] mainSaveFile;

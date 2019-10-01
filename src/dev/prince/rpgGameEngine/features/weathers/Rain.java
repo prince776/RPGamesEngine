@@ -46,6 +46,12 @@ public class Rain {
 			
 		}
 	}
+	public void renderUnconditionally(){
+		rain(rainSpeed);
+		thunderParam = Utils.getRandomInt(0, 100);
+		if(thunderParam <= thunderProb)
+			thunder();
+	}
 	
 	public void thunder(){
 		//play sound

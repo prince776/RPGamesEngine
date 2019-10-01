@@ -7,7 +7,7 @@ StaticEntity 596 3 125 115 pc
 NPC 796 174 62 67 
 StaticEntity 531 220 85 125 bed 
 StaticEntity 593 221 85 125 bed 
-NPC 457 405 62 67 
 StaticEntity 351 438 75 75 pot 
 StaticEntity 838 438 75 75 pot 
+NPC 457 405 62 67 
 Door 872 99 933 486 50 20 Pallet house1 Pallet house1Floor1 Player true 

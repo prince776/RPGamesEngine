@@ -100,7 +100,7 @@ public class WorldCreationState extends State{
 	//SAVING CODE..
 	
 	public void saveWorld(){
-		WorldSave.Save(handler,(int)handler.getWorld().getEntityManager().getPlayer().getX(),(int) handler.getWorld().getEntityManager().getPlayer().getY(), handler.getWorld().getWidth(), handler.getWorld().getHeight(), handler.getWorld().getTiles());
+		WorldSave.Save(handler, handler.getWorld().getWidth(), handler.getWorld().getHeight(), handler.getWorld().getTiles());
 	}
 	
 	public void saveGame(){

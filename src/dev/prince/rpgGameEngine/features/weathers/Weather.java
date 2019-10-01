@@ -1,8 +1,11 @@
 package dev.prince.rpgGameEngine.features.weathers;
 
+import java.util.HashMap;
+
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.features.Clock;
 import dev.prince.rpgGameEngine.gfx.Renderer;
+import dev.prince.rpgGameEngine.utils.Utils;
 
 public class Weather {
 	
@@ -10,9 +13,15 @@ public class Weather {
 	
 	private Rain rain;
 	
+	public HashMap<String, String> worldParams;
+	private String[] excludedWeathers;
+	private String permanentWeather;
+	
 	public Weather(Handler handler,Clock clock){
 		this.handler=handler;
 		this.rain = new Rain(handler);
+		this.worldParams = handler.getWorld().getWorldParams();
+		this.excludedWeathers = worldParams.get("ExcludedWeathers").split(",");
 	}
 	
 	public void tick(){
@@ -20,10 +29,37 @@ public class Weather {
 	}
 	
 	public void render(){
+		if(worldParams.get("PermanentWeather").equalsIgnoreCase("none")){//no permanent weather
+			if(worldParams.get("Indoor").equals("false")){//not indoor
+				
+				//Doing this in case excluded weather list is being changed by creation mode(feature to be added)
+				this.excludedWeathers = worldParams.get("ExcludedWeathers").split(",");
+				
+				if(!isExcluded("rain")){//if rain not excluded
+					rain.rainSpeed = Utils.parseInt(worldParams.get("Rain"));
+					rain.render();
+				}
+			
+			}
+		}
 		
-		rain.render();
-		dayNight();
-
+		permanentWeather = worldParams.get("PermanentWeather");
+		
+		if(!permanentWeather.equalsIgnoreCase("none")){
+			switch(permanentWeather){
+			case "rain":
+				rain.rainSpeed = Utils.parseInt(worldParams.get("Rain"));
+				rain.renderUnconditionally();
+			default:
+				break;
+			}
+		}
+		
+		if(worldParams.get("PermanentLight").equals("-1"))
+			dayNight();
+		else{
+			setLight(Utils.parseInt(worldParams.get("PermanentLight")));
+		}
 	}
 	
 	
@@ -41,6 +77,18 @@ public class Weather {
 		}
 	}
 	
+	public void setLight(float value){
+		Renderer.setColor(0, 0, 0, 1-value/100);
+		Renderer.renderQuad(0, 0, handler.getWidth(),handler.getHeight());
+	}
+	
+	public boolean isExcluded(String weatherName){
+		for(int i=0;i<excludedWeathers.length;i++){
+			if(excludedWeathers[i].equalsIgnoreCase(weatherName))
+				return true;
+		}
+		return false;
+	}
 	
 	public Rain getRain(){
 		return rain;

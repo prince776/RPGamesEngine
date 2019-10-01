@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dev.prince.rpgGameEngine.Game;
 import dev.prince.rpgGameEngine.Handler;
@@ -35,16 +36,21 @@ public class World {
 	private ArrayList<Integer[]> solidTiles;
 	
 	private EntityManager entityManager;
+	private HashMap<String,String> worldParams;
+	private final int worldParamsLen = 5;
 	
 	public static boolean render=true;
 	
 	public World(Handler handler,String worldPath){
+		
 		this.handler=handler;
+		solidTiles = new ArrayList<Integer[]>();
+		this.worldPath = "";
 		player=new Player(handler,x,y,"PRINCE");
 		entityManager = new EntityManager(handler,player);
-		this.worldPath=worldPath;
-		solidTiles = new ArrayList<Integer[]>();
-		loadWorld(this.worldPath);	
+		worldParams = new HashMap<String,String>();
+		
+		loadWorld(worldPath);	
 		WorldSave.init(handler);
 		
 	}
@@ -131,6 +137,11 @@ public class World {
 	//LOADER METHODS
 	
 	public void loadWorld(String path){
+			
+			if(this.worldPath != "" && GameState.autoSave){
+				WorldSave.Save(handler, width, height, tiles);
+			}
+		
 			this.worldPath=path;
 			setWorldPath(path);
 			String file = Utils.loadFileAsString(path);
@@ -152,9 +163,8 @@ public class World {
 			GameState.currentLevel = tokens[width*height+2];
 			
 			loadSolidTileData();
-			
 			loadEntity();
-
+			loadWorldParams();
 	}
 	
 	public ArrayList<Integer[]> getSolidTiles() {
@@ -210,7 +220,6 @@ public class World {
 	
 	public void loadEntity(){	
 		
-//		entityManager.getEntities().removeAll(entityManager.getEntities());
 		entityManager.getEntities().clear();
 		entityManager.addEntity(player);
 		if(Game.isServer){
@@ -262,6 +271,28 @@ public class World {
 		
 	}
 	
+	public void loadWorldParams(){
+		worldParams.clear();
+		String tokens[] = Utils.loadFileAsString(this.worldPath.substring(0,worldPath.length()-5)+"params").split("\\s+");
+		if(tokens.length == worldParamsLen*2){
+			for(int i=0;i<tokens.length;i+=2){
+				worldParams.put(tokens[i].substring(0,tokens[i].length()-1), tokens[i+1]);//we do substring to remove ":" from key
+			}
+		}
+		if(worldParams.keySet().size()<worldParamsLen){
+			setDefaultWorldParams();
+		}
+	}
+	
+	private void setDefaultWorldParams(){
+		worldParams.clear();
+		worldParams.put("Indoor", "false");
+		worldParams.put("PermanentLight" ,"-1");
+		worldParams.put("PermanentWeather", "none");
+		worldParams.put("ExcludedWeathers" ,"none,none");
+		worldParams.put("Rain" ,"2");
+	}
+	
 	////GETTERS////
 
 	public EntityManager getEntityManager() {
@@ -298,7 +329,9 @@ public class World {
 		this.worldPath = worldPath;
 	}
 
-
+	public HashMap<String, String> getWorldParams(){
+		return worldParams;
+	}
 	
 	
 }
