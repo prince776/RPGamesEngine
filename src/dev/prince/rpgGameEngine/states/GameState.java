@@ -30,9 +30,6 @@ public class GameState extends State{
 	private Color c=Color.darkGray.darker();
 	private float fadeValue=1.0f,fadeMagnitude=0f;
 	
-	//test code
-	private Light light;
-
 	public GameState(Handler handler){
 		super(handler);
 		
@@ -55,9 +52,6 @@ public class GameState extends State{
 		clock.init();
 		gameCreationState = new WorldCreationState(handler);
 		
-		light = new Light(handler,200, 200, 100, new float[]{1,1,1}
-							,0f,0.8f,100);
-		
 	}
 	
 	
@@ -76,8 +70,6 @@ public class GameState extends State{
 			}	
 
 		prompt.tick();
-		
-		light.tick();
 		
 	}
 
@@ -104,7 +96,7 @@ public class GameState extends State{
 			fadeMagnitude=0f;
 		}
 		
-		light.render();
+		world.getLightManager().render();
 		
 		if(handler.getWorld().getEntityManager().getPlayer().isUseInventory()){
 			handler.getWorld().getEntityManager().getPlayer().getInventory().render();
@@ -169,9 +161,7 @@ public class GameState extends State{
 			State.setState(handler.getGame().getMenuState());
 			toMenu=false;
 		}	
-		
 	}
-	
 	
 	//GETTERS..
 	public WorldCreationState getGameCreationSate() {

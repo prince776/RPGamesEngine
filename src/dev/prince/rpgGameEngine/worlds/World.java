@@ -15,6 +15,8 @@ import dev.prince.rpgGameEngine.entities.creatures.NPC;
 import dev.prince.rpgGameEngine.entities.creatures.Player;
 import dev.prince.rpgGameEngine.entities.creatures.PlayerMP;
 import dev.prince.rpgGameEngine.entities.statics.StaticEntity;
+import dev.prince.rpgGameEngine.features.Light;
+import dev.prince.rpgGameEngine.features.LightManager;
 import dev.prince.rpgGameEngine.gfx.Renderer;
 import dev.prince.rpgGameEngine.states.GameState;
 import dev.prince.rpgGameEngine.tiles.Tile;
@@ -36,6 +38,8 @@ public class World {
 	private ArrayList<Integer[]> solidTiles;
 	
 	private EntityManager entityManager;
+	private LightManager lightManager;
+	
 	private HashMap<String,String> worldParams;
 	private final int worldParamsLen = 5;
 	
@@ -48,6 +52,7 @@ public class World {
 		this.worldPath = "";
 		player=new Player(handler,x,y,"PRINCE");
 		entityManager = new EntityManager(handler,player);
+		lightManager = new LightManager(handler);
 		worldParams = new HashMap<String,String>();
 		
 		loadWorld(worldPath);	
@@ -69,6 +74,7 @@ public class World {
 			}
 		}
 		entityManager.tick(xStart, xEnd, yStart, yEnd);
+		lightManager.tick();
 	}
 	
 	public void render() {		
@@ -221,6 +227,7 @@ public class World {
 	public void loadEntity(){	
 		
 		entityManager.getEntities().clear();
+		lightManager.getLights().clear();
 		entityManager.addEntity(player);
 		if(Game.isServer){
 			for(PlayerMP p:handler.getServer().connectedPlayers){
@@ -243,7 +250,7 @@ public class World {
 					//WorldCreationState.npcCount++;
 					entityManager.addEntity(new NPC(handler,Utils.parseInt(data[1]),Utils.parseInt(data[2])));
 				}
-				if(data[0].equalsIgnoreCase("door")){//DOOR
+				else if(data[0].equalsIgnoreCase("door")){//DOOR
 					entityManager.addEntity(new Door(
 							handler,
 							Utils.parseInt(data[1]),Utils.parseInt(data[2]),
@@ -255,11 +262,17 @@ public class World {
 							((data[12].equalsIgnoreCase("true")?true:false))
 							));
 				}
-				if(data[0].equalsIgnoreCase("StaticEntity")){
+				else if(data[0].equalsIgnoreCase("StaticEntity")){
 					entityManager.addEntity(new StaticEntity(handler,Utils.parseInt(data[1]),Utils.parseInt(data[2]),
 							Utils.parseInt(data[3]),
 							Utils.parseInt(data[4]),
 							data[5]));
+				}
+				else if(data[0].equalsIgnoreCase("Light")){
+					String[] rgb = data[4].split(",");
+					float[] color = new float[]{Utils.parseFloat(rgb[0]), Utils.parseFloat(rgb[1]), Utils.parseFloat(rgb[2])};
+					lightManager.addLight(new Light(handler, Utils.parseInt(data[1]), Utils.parseInt(data[2]), Utils.parseInt(data[3]), color,
+							Utils.parseFloat(data[5]), Utils.parseFloat(data[6]), Utils.parseInt(data[7])));
 				}
 			}
 			br.close();
@@ -333,5 +346,8 @@ public class World {
 		return worldParams;
 	}
 	
+	public LightManager getLightManager(){
+		return lightManager;
+	}
 	
 }

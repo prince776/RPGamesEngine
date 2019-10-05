@@ -51,6 +51,14 @@ public class Utils {
 		}
 	}
 	
+	public static float parseFloat(String i){
+		try{
+			return Float.parseFloat(i);
+		}catch(NumberFormatException e){
+			e.printStackTrace();return 0;
+		}
+	}
+	
 	public static int getRandomInt(int initialNum , int finalNum){
 		return random.nextInt(finalNum-initialNum +1)+initialNum;
 	}

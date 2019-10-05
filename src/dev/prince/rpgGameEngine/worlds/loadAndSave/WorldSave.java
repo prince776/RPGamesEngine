@@ -10,6 +10,7 @@ import java.util.Set;
 
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.entities.Entity;
+import dev.prince.rpgGameEngine.features.Light;
 import dev.prince.rpgGameEngine.states.GameState;
 import dev.prince.rpgGameEngine.utils.Utils;
 
@@ -128,6 +129,12 @@ public class WorldSave {
 						}
 					fw.append("\n");
 				}
+			}
+			
+			for(Light l:handler.getLights()){
+				fw.append("Light " + l.getX() + " " + l.getY() + " " + l.getRadius() + " " );
+				fw.append(l.getColor()[0] + "," + l.getColor()[1] + "," + l.getColor()[2] + " ");
+				fw.append(l.getMinIntensity() + " " + l.getMaxIntensity() + " " + l.getLOD() +" \n");
 			}
 			
 			fw.close();

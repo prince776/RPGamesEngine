@@ -207,3 +207,4 @@ Door 457 657 600 445 60 20 Pallet mainLand Pallet house1 Player true
 Door 1189 658 433 585 50 20 Pallet mainLand Pallet house2 Player true 
 Door 1246 1075 401 617 50 20 Pallet mainLand Pallet oakLab Player true 
 Door 725 1349 50 50 444 20 Pallet mainLand Sea palletSea Player true 
+Light 300 300 100 1,1,1 0.0025 0.5 100

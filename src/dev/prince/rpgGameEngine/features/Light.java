@@ -62,5 +62,43 @@ public class Light {
 			Renderer.renderImage(Assets.light, x-i*r - handler.getGameCamera().getxOffset(), y-i*r - handler.getGameCamera().getyOffset(), 2*r*i, 2*r*i, new float[]{color[0],color[1],color[2],minIntensity + dIntensity});
 		}
 	}
+
+	//getters
+
+	public Handler getHandler() {
+		return handler;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public int getRadius() {
+		return radius;
+	}
+
+	public float[] getColor() {
+		return color;
+	}
+
+	public float getMinIntensity() {
+		return minIntensity;
+	}
+
+	public float getMaxIntensity() {
+		return maxIntensity;
+	}
+
+	public int getLOD() {
+		return LOD;
+	}
+
+	public float getdIntensity() {
+		return dIntensity;
+	}
 	
 }

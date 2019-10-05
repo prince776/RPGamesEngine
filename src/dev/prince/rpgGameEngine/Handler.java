@@ -1,7 +1,10 @@
 package dev.prince.rpgGameEngine;
 
+import java.util.ArrayList;
+
 import dev.prince.rpgGameEngine.entities.creatures.Player;
 import dev.prince.rpgGameEngine.features.Clock;
+import dev.prince.rpgGameEngine.features.Light;
 import dev.prince.rpgGameEngine.features.weathers.Weather;
 import dev.prince.rpgGameEngine.gfx.GameCamera;
 import dev.prince.rpgGameEngine.inputs.KeyManager;
@@ -102,6 +105,10 @@ public class Handler {
 		
 	public Weather getWeather(){
 		return game.getGameState().getClock().getWeatherSystem();
+	}
+	
+	public ArrayList<Light> getLights(){
+		return world.getLightManager().getLights();
 	}
 	
 }
