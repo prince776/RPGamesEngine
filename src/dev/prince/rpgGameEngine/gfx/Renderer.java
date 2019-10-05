@@ -48,12 +48,19 @@ import java.nio.IntBuffer;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL14;
 import org.lwjgl.opengl.GLContext;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
+
+
+
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.fonts.Fonts;
+import static org.lwjgl.opengl.EXTFramebufferObject.glGenFramebuffersEXT;
+
+import static org.lwjgl.opengl.EXTFramebufferObject.*;
 
 public class Renderer {
 	
@@ -65,6 +72,10 @@ public class Renderer {
 	public static float r=0f,g=0f,b=0f,a=0f;
 	
 	public static int texture ;
+	
+	//FBO
+	public static int framebufferID,colorTextureID,depthRenderBufferID;
+	
 	
 	public static Handler handler;
 	
@@ -83,14 +94,40 @@ public class Renderer {
 		
 		vboID = generateVBOID();
 		
+		
+		
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_COLOR_ARRAY);
 		glEnableClientState(GL11.GL_TEXTURE_COORD_ARRAY);
 		glBindBuffer(GL_ARRAY_BUFFER,vboID);
-
+		
+		initFBO();
 		
 	}
 	
+	public static void initFBO(){
+		  // init our fbo
+	     
+        framebufferID = glGenFramebuffersEXT();                                         // create a new framebuffer
+        colorTextureID = GL11.glGenTextures();                                               // and a new texture used as a color buffer
+        depthRenderBufferID = glGenRenderbuffersEXT();                                  // And finally a new depthbuffer
+ 
+        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, framebufferID);                        // switch to the new framebuffer
+ 
+        // initialize color texture
+        GL11.glBindTexture(GL_TEXTURE_2D, colorTextureID);                                   // Bind the colorbuffer texture
+        GL11.glTexParameterf(GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);               // make it linear filterd
+        GL11.glTexImage2D(GL_TEXTURE_2D, 0, GL11.GL_RGBA8, handler.getWidth(), handler.getHeight(), 0,GL11.GL_RGBA, GL11.GL_INT, (java.nio.ByteBuffer) null);  // Create the texture data
+        glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT,GL_COLOR_ATTACHMENT0_EXT,GL_TEXTURE_2D, colorTextureID, 0); // attach it to the framebuffer
+ 
+ 
+        // initialize depth renderbuffer
+        glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, depthRenderBufferID);                // bind the depth renderbuffer
+        glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL14.GL_DEPTH_COMPONENT24, 512, 512); // get the data space for it
+        glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT,GL_DEPTH_ATTACHMENT_EXT,GL_RENDERBUFFER_EXT, depthRenderBufferID); // bind it to the renderbuffer
+ 
+        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0); 
+	}
 	
 		
 	
@@ -269,6 +306,38 @@ public class Renderer {
 
 		
 	}
+	
+	public static void renderImage(int texture,float x , float y , float width,float height,float alpha){
+		
+		
+		GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture);
+		
+		totalData.put(new float[]{
+				x,y,				1,1,1,alpha,	0,1,//delta1
+				x+width,y,			1,1,1,alpha,	1,1,//delta2
+				x+width,y+height,	1,1,1,alpha,	1,0,//delta3
+				x,y+height,			1,1,1,alpha,	0,0
+		});
+		
+		totalData.flip();
+		
+		bufferData(vboID,totalData);
+		
+		//BIND VBOs
+		//VERTEX
+		glVertexPointer(vertexSize,GL_FLOAT,8*4,0L);
+				
+		//COLOR
+		glColorPointer(colorSize,GL_FLOAT,8*4,2*4);
+				
+		//TEXTURE
+		GL11.glTexCoordPointer(vertexSize,GL_FLOAT,8*4,6*4);		
+		
+		glDrawArrays(GL_QUADS,0,vertexCount);
+
+		
+	}
+	
 	
 	public static void renderImage(Texture texture,float x , float y , float width,float height,float[] rgba){
 		

@@ -8,3 +8,9 @@ World + Map Building elements:
 
 Might wanna separate thunder into a class for making it separate weather. Then during rain while non-Indoor will
 have rain+thunder , Indoor will only have thunder
+
+
+TO TEST:
+Test rendering performance between:
+1) current rendering system
+2) make only 1 model VAO/VBO and pass transformation for each tile/entity 

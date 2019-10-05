@@ -122,7 +122,6 @@ StaticEntity 14 970 99 126 tree
 StaticEntity 1645 973 99 126 tree 
 StaticEntity 88 994 99 126 tree 
 StaticEntity -38 998 99 126 tree 
-NPC 992 1035 62 67 
 StaticEntity 1341 1076 105 85 fenceX 
 StaticEntity 1031 1077 105 85 fenceX 
 StaticEntity 1084 1077 105 85 fenceX 
@@ -137,6 +136,7 @@ StaticEntity 21 1065 99 126 tree
 StaticEntity -26 1091 99 126 tree 
 StaticEntity 88 1091 99 126 tree 
 StaticEntity 1647 1099 99 126 tree 
+NPC 992 1035 62 67 
 StaticEntity 1413 1198 65 55 inscription 
 StaticEntity 91 1137 99 126 tree 
 StaticEntity 150 1149 99 126 tree 
@@ -207,4 +207,3 @@ Door 457 657 600 445 60 20 Pallet mainLand Pallet house1 Player true
 Door 1189 658 433 585 50 20 Pallet mainLand Pallet house2 Player true 
 Door 1246 1075 401 617 50 20 Pallet mainLand Pallet oakLab Player true 
 Door 725 1349 50 50 444 20 Pallet mainLand Sea palletSea Player true 
-Light 300 300 100 1,1,1 0.0025 0.5 100

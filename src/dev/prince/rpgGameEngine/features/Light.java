@@ -63,6 +63,14 @@ public class Light {
 		}
 	}
 
+//	GL11.glTexEnvi(GL11.GL_TEXTURE_ENV, GL11.GL_TEXTURE_ENV_MODE, GL11.GL_MODULATE);
+//	GL11.glColor3f(1.0f, 0.0f, 0.0f);
+//	GL11.glTexCoord2f(...);
+//	GL11.glVertex2i(top_left_x, top_left_y);
+//	GL11.glColor3f(0.0f, 1.0f, 0.0f);
+//	GL11.glTexCoord2f(...);
+//	GL11.glVertex2i(top_right_x, top_right_y);
+	
 	//getters
 
 	public Handler getHandler() {

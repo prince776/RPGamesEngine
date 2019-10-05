@@ -48,14 +48,14 @@ public class DisplayClass {
 		//INIT OPENGL
 		
 		glEnable(GL_TEXTURE_2D);//ENABLE 2D TEXTURE
-	    glShadeModel(GL_SMOOTH);        
+//	    glShadeModel(GL_SMOOTH);        
 	    glDisable(GL_DEPTH_TEST);
 	    glDisable(GL_LIGHTING);   
-	    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-	    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+//	    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+//	    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
 	    glClearColor(0f,0f,0f,0f);
 	    glClearDepth(1);
-	    glEnable(GL13.GL_MULTISAMPLE);
+//	    glEnable(GL13.GL_MULTISAMPLE);
 		//ENABLE ALPHA BENDING MEANING ENABLE TRANSPARENCY
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
@@ -67,6 +67,7 @@ public class DisplayClass {
 		glLoadIdentity();
 		glOrtho(0,width,height,0,1,-1);
 		glMatrixMode(GL_MODELVIEW);
+		
 		
 		
 		

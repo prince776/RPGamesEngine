@@ -1,0 +1,5 @@
+PermanentWeather: none
+Rain: 2
+PermanentLight: -1
+Indoor: false
+ExcludedWeathers: none,none
