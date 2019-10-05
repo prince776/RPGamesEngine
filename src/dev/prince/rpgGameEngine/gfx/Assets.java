@@ -24,6 +24,8 @@ public class Assets {
 	
 	public static Texture tileSet , playerSheet , playerSwimSheet , NPCsheet,NPCswimSheet,statics,items,rain;
 	public static Texture logo,credit;
+	public static Texture light;
+	
 	
 	public static float[][] characterDown,characterUp,characterLeft,characterRight;
 	
@@ -49,7 +51,8 @@ public class Assets {
 		statics = ImageLoader.loadImage("res/textures/statics.png", "PNG");
 		items = ImageLoader.loadImage("res/textures/items.png", "PNG");
 		rain = ImageLoader.loadImage("res/textures/rain.png", "PNG");
-
+		light = ImageLoader.loadImage("res/textures/light.png", "PNG");
+		
 		//INITIALIZE PICTURES
 		logo = ImageLoader.loadImage("res/textures/logo.png", "PNG");
 		credit = ImageLoader.loadImage("res/textures/creditState.png", "PNG");

@@ -270,7 +270,36 @@ public class Renderer {
 		
 	}
 	
-	
+	public static void renderImage(Texture texture,float x , float y , float width,float height,float[] rgba){
+		
+		texture.bind();
+		
+		totalData.put(new float[]{
+				x,y,				rgba[0],rgba[1],rgba[2],rgba[3],	0,0,//delta1
+				x+width,y,			rgba[0],rgba[1],rgba[2],rgba[3],	1,0,//delta2
+				x+width,y+height,	rgba[0],rgba[1],rgba[2],rgba[3],	1,//delta3
+																		1,
+				x,y+height,			rgba[0],rgba[1],rgba[2],rgba[3],	0,1
+		});
+		
+		totalData.flip();
+		
+		bufferData(vboID,totalData);
+		
+		//BIND VBOs
+		//VERTEX
+		glVertexPointer(vertexSize,GL_FLOAT,8*4,0L);
+				
+		//COLOR
+		glColorPointer(colorSize,GL_FLOAT,8*4,2*4);
+				
+		//TEXTURE
+		GL11.glTexCoordPointer(vertexSize,GL_FLOAT,8*4,6*4);		
+		
+		glDrawArrays(GL_QUADS,0,vertexCount);
+
+		
+	}
 	
 	public static void renderSubImage(Texture texture,float x , float y,float width,float height,float[] data,float alpha ){//,float x1,float y1, int width,int height,float alpha){
 	

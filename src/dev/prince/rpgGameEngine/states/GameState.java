@@ -6,6 +6,7 @@ import org.newdawn.slick.Color;
 import dev.prince.rpgGameEngine.Game;
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.features.Clock;
+import dev.prince.rpgGameEngine.features.Light;
 import dev.prince.rpgGameEngine.fonts.Fonts;
 import dev.prince.rpgGameEngine.gfx.Renderer;
 import dev.prince.rpgGameEngine.inputs.KeyManager;
@@ -28,6 +29,9 @@ public class GameState extends State{
 	//need to remove these variables and take them to more appropriate place
 	private Color c=Color.darkGray.darker();
 	private float fadeValue=1.0f,fadeMagnitude=0f;
+	
+	//test code
+	private Light light;
 
 	public GameState(Handler handler){
 		super(handler);
@@ -51,6 +55,9 @@ public class GameState extends State{
 		clock.init();
 		gameCreationState = new WorldCreationState(handler);
 		
+		light = new Light(handler,200, 200, 100, new float[]{1,1,1}
+							,0f,0.8f,100);
+		
 	}
 	
 	
@@ -69,6 +76,9 @@ public class GameState extends State{
 			}	
 
 		prompt.tick();
+		
+		light.tick();
+		
 	}
 
 	@Override
@@ -94,10 +104,14 @@ public class GameState extends State{
 			fadeMagnitude=0f;
 		}
 		
+		light.render();
 		
 		if(handler.getWorld().getEntityManager().getPlayer().isUseInventory()){
 			handler.getWorld().getEntityManager().getPlayer().getInventory().render();
 		}		
+		
+		
+		
 	}
 	public void renderDialogue(String message){
 		System.out.println("RENDERING DIALOGUE");
