@@ -283,8 +283,7 @@ public class Renderer {
 		totalData.put(new float[]{
 				x,y,				1,1,1,alpha,	0,0,//delta1
 				x+width,y,			1,1,1,alpha,	1,0,//delta2
-				x+width,y+height,	1,1,1,alpha,	1,//delta3
-													1,
+				x+width,y+height,	1,1,1,alpha,	1,1,//delta3
 				x,y+height,			1,1,1,alpha,	0,1
 		});
 		
@@ -307,6 +306,9 @@ public class Renderer {
 		
 	}
 	
+	/*
+	 * renders image upside down
+	 */
 	public static void renderImage(int texture,float x , float y , float width,float height,float alpha){
 		
 		
