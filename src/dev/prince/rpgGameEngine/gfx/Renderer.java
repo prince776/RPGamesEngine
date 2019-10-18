@@ -56,17 +56,18 @@ import org.newdawn.slick.opengl.Texture;
 
 
 
+
+import com.sun.corba.se.impl.ior.ByteBuffer;
+
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.fonts.Fonts;
-import static org.lwjgl.opengl.EXTFramebufferObject.glGenFramebuffersEXT;
-
 import static org.lwjgl.opengl.EXTFramebufferObject.*;
 
 public class Renderer {
 	
 	public static int displayListHandler,vertexCount,vertexSize,colorSize;
 	
-	public static int vboID;
+	public static int vboID,normalVBO;
 	
 	public static FloatBuffer totalData,tData;
 	public static float r=0f,g=0f,b=0f,a=0f;
@@ -93,6 +94,7 @@ public class Renderer {
 		tData = BufferUtils.createFloatBuffer(vertexCount*vertexSize+vertexCount*colorSize);
 		
 		vboID = generateVBOID();
+		normalVBO = generateVBOID();
 		
 		
 		
@@ -125,7 +127,6 @@ public class Renderer {
         glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, depthRenderBufferID);                // bind the depth renderbuffer
         glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL14.GL_DEPTH_COMPONENT24, 512, 512); // get the data space for it
         glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT,GL_DEPTH_ATTACHMENT_EXT,GL_RENDERBUFFER_EXT, depthRenderBufferID); // bind it to the renderbuffer
- 
         glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0); 
 	}
 	
@@ -281,9 +282,9 @@ public class Renderer {
 		texture.bind();
 		
 		totalData.put(new float[]{
-				x,y,				1,1,1,alpha,	0,0,//delta1
-				x+width,y,			1,1,1,alpha,	1,0,//delta2
-				x+width,y+height,	1,1,1,alpha,	1,1,//delta3
+				x,y,				1,1,1,alpha, 	0,0,	
+				x+width,y,			1,1,1,alpha,	1,0,	
+				x+width,y+height,	1,1,1,alpha,	1,1,	
 				x,y+height,			1,1,1,alpha,	0,1
 		});
 		
@@ -299,7 +300,21 @@ public class Renderer {
 		glColorPointer(colorSize,GL_FLOAT,8*4,2*4);
 				
 		//TEXTURE
-		GL11.glTexCoordPointer(vertexSize,GL_FLOAT,8*4,6*4);		
+		GL11.glTexCoordPointer(vertexSize,GL_FLOAT,8*4,6*4);
+		
+		//NORMALS
+		
+		FloatBuffer normals = BufferUtils.createFloatBuffer(12);
+		normals.put(new float[]{
+			0,0,1,
+			0,0,-1,
+			0,0,1,
+			0,0,-1
+		});
+		normals.flip();
+		
+		GL11.glNormalPointer(GL_FLOAT,4*4,0L);
+		
 		
 		glDrawArrays(GL_QUADS,0,vertexCount);
 

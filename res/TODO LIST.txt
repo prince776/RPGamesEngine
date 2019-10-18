@@ -5,6 +5,7 @@ World + Map Building elements:
 3)SandStorm
 4)Earthquake
 5)Atmosphere effects: bright,dull,smoky etc.
+6)Try GL_DYNAMIC_DRAW
 
 Might wanna separate thunder into a class for making it separate weather. Then during rain while non-Indoor will
 have rain+thunder , Indoor will only have thunder

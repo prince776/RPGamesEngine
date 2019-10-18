@@ -120,6 +120,7 @@ StaticEntity 1073 1031 70 60 mailbox
 StaticEntity 1711 966 99 126 tree 
 StaticEntity 14 970 99 126 tree 
 StaticEntity 1645 973 99 126 tree 
+NPC 992 1035 62 67 
 StaticEntity 88 994 99 126 tree 
 StaticEntity -38 998 99 126 tree 
 StaticEntity 1341 1076 105 85 fenceX 
@@ -136,7 +137,6 @@ StaticEntity 21 1065 99 126 tree
 StaticEntity -26 1091 99 126 tree 
 StaticEntity 88 1091 99 126 tree 
 StaticEntity 1647 1099 99 126 tree 
-NPC 992 1035 62 67 
 StaticEntity 1413 1198 65 55 inscription 
 StaticEntity 91 1137 99 126 tree 
 StaticEntity 150 1149 99 126 tree 

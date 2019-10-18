@@ -3,18 +3,22 @@ package dev.prince.rpgGameEngine;
 import java.awt.Font;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.FloatBuffer;
 import java.util.Formatter;
 
 import javax.swing.JOptionPane;
 
+import org.lwjgl.BufferUtils;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.openal.SoundStore;
-import static org.lwjgl.opengl.EXTFramebufferObject.*;
 
+import static org.lwjgl.opengl.EXTFramebufferObject.*;
+import static org.lwjgl.opengl.GL11.GL_LIGHTING;
+import static org.lwjgl.opengl.GL11.glDisable;
 import dev.prince.rpgGameEngine.display.DisplayClass;
 import dev.prince.rpgGameEngine.fonts.Fonts;
 import dev.prince.rpgGameEngine.gfx.Assets;
@@ -266,6 +270,11 @@ public class Game {
 		
 		
 		//RENDERING TO FBO
+	    glDisable(GL_LIGHTING);   
+		GL11.glDisable(GL11.GL_DEPTH_TEST);
+	 
+		GL11.glDisableClientState(GL11.GL_NORMAL_ARRAY);
+
 		GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0); // unlink textures because if
 													// we dont it all is gonna
 													// fail
@@ -287,13 +296,35 @@ public class Game {
 
 		SoundStore.get().poll(0);
 
+		
+		
 		// NOW RENDER THE FBO TO DEFAULT BUFFER
+		
+		
+		GL11.glEnableClientState(GL11.GL_NORMAL_ARRAY);
+
 		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0); // switch to rendering on
 														// the framebuffer
 		GL11.glClearColor(0, 0, 0f, 1f);
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); 
 		Renderer.renderImage(Renderer.colorTextureID, 0, 0, width, height, 1);
+		
+		//Lighting
+		GL11.glEnable(GL11.GL_DEPTH_TEST);
+	    GL11.glEnable(GL_LIGHTING);   
 
+		FloatBuffer ambient = BufferUtils.createFloatBuffer(4);
+		ambient.put(new float[] { 0.05f, 0.05f, 0.05f, 1f, });
+		ambient.flip();    
+
+		FloatBuffer position = BufferUtils.createFloatBuffer(4);
+		position.put(new float[] { 0, 0, -10f, 1f, });
+		position.flip();    
+
+		GL11.glLightModel(GL11.GL_LIGHT_MODEL_AMBIENT, ambient);
+		GL11.glLight(GL11.GL_LIGHT0, GL11.GL_POSITION, position);
+		GL11.glEnable(GL11.GL_LIGHT0);
+		
 	}
 
 	// CLOSE
