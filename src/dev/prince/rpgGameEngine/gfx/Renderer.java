@@ -57,8 +57,6 @@ import org.newdawn.slick.opengl.Texture;
 
 
 
-import com.sun.corba.se.impl.ior.ByteBuffer;
-
 import dev.prince.rpgGameEngine.Handler;
 import dev.prince.rpgGameEngine.fonts.Fonts;
 import static org.lwjgl.opengl.EXTFramebufferObject.*;
@@ -125,7 +123,7 @@ public class Renderer {
  
         // initialize depth renderbuffer
         glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, depthRenderBufferID);                // bind the depth renderbuffer
-        glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL14.GL_DEPTH_COMPONENT24, 512, 512); // get the data space for it
+        glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL14.GL_DEPTH_COMPONENT24, handler.getWidth(), handler.getHeight()); // get the data space for it
         glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT,GL_DEPTH_ATTACHMENT_EXT,GL_RENDERBUFFER_EXT, depthRenderBufferID); // bind it to the renderbuffer
         glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0); 
 	}

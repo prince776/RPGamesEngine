@@ -2,8 +2,6 @@ package dev.prince.rpgGameEngine.features;
 
 import java.util.ArrayList;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
-
 import dev.prince.rpgGameEngine.Handler;
 
 public class LightManager {

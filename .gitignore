@@ -1,0 +1,18 @@
+# Compiled output
+bin/
+*.class
+
+# Build artifacts / old distributables
+Executable/
+
+# JVM crash logs
+hs_err_pid*.log
+
+# macOS junk
+.DS_Store
+
+# IDE - VS Code (machine-specific JDK paths in launch.json/settings.json)
+.vscode/
+
+# Local backups of original texture files (pre PNG-format conversion)
+res/textures/.backup/
